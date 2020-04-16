@@ -10,7 +10,8 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ./",
     "test": "echo \"No test specified\" && exit 0",
-    "start": "node dist/ssr/index.js"
+    "start": "node dist/ssr/index.js",
+    "build": "quasar build -m ssr"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
