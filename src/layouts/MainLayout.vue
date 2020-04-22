@@ -1,24 +1,25 @@
+
 <template>
   <div class="q-pa-md">
     <q-layout view='lHh Lpr lFf'>
       <q-header elevated>
         <div class="row no-wrap">
-          <q-toolbar>
-            <q-toolbar-title class='col-md-8'>
+          <q-toolbar class='col-8'>
+            <q-toolbar-title>
               Home Learning Resources by the Parent's &amp; Friend's of Christ's College Guildford
             </q-toolbar-title>
+          </q-toolbar>
+          <q-toolbar class='col-4'>
             <q-select
-              class='col-md-4'
               outlined
               v-model='topic'
-              :value='options.All'
               :options='options'
               label='Filter by Subject'
               emit-value
               map-options
-              color='black'
-              bg-color="white"
-              style='max-width: 900px'
+              :value='topic.value'
+              bg-color='white'
+              style='min-width: 400px'
               @input='topic => { topicChange(topic) }'
             />
           </q-toolbar>
@@ -32,6 +33,7 @@
 </template>
 
 <script>
+
 import Resources from 'components/Resources'
 import EventBus from 'components/EventBus.js'
 export default {
@@ -42,11 +44,16 @@ export default {
   methods: {
     topicChange (newTopic) {
       console.log('MainLayout - Topic changed to: ' + newTopic)
+      this.topic = newTopic
       EventBus.$emit('topic-change', newTopic)
     }
   },
+  props: {
+
+  },
   data () {
     return {
+      topic: '',
       options: [
         { label: 'All', value: 'All' },
         { label: 'General', value: 'General' },
@@ -63,6 +70,10 @@ export default {
         { label: 'PE', value: 'PE' }
       ]
     }
+  },
+  created () {
+    this.topic = this.options[0].label
   }
+
 }
 </script>

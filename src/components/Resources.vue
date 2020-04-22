@@ -65,7 +65,7 @@ export default {
       axios
         .get(restURL)
         .then(response => {
-          console.log(JSON.stringify(response.data.rows))
+          //  console.log(JSON.stringify(response.data.rows))
           this.resources = response.data.rows
         })
     }
