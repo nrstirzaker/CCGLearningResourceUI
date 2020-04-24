@@ -25,18 +25,7 @@
                 horizontal
                 class="justify-around"
               >
-                <q-btn
-                  flat
-                  round
-                  color="red"
-                  icon="favorite"
-                />
-                <q-btn
-                  flat
-                  round
-                  color="primary"
-                  icon="share"
-                />
+
               </q-card-actions>
             </q-card-section>
           </q-card>
